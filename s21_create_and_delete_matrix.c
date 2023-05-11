@@ -4,15 +4,15 @@
 int s21_create_matrix(int rows, int columns, matrix_t *result) {
   int output = CONVERSATION_ERROR;
 
-  if (result->matrix) {
-    if (rows < 1 || columns < 1) {
-      output = CONVERSATION_ERROR;
-    } else {
-      output = CONVERSATION_OK;
-      result->rows = rows;
-      result->columns = columns;
-      result->matrix = (double **)calloc(rows, sizeof(double *));
+  if (rows < 1 || columns < 1) {
+    output = CONVERSATION_ERROR;
+  } else {
+    output = CONVERSATION_OK;
+    result->rows = rows;
+    result->columns = columns;
+    result->matrix = (double **)calloc(rows, sizeof(double *));
 
+    if (result->matrix != NULL) {
       for (int i = 0; i < rows && !output; i++) {
         result->matrix[i] = (double *)calloc(columns, (sizeof(double)));
         if (result->matrix[i] == NULL) {
@@ -21,9 +21,9 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
           output = CONVERSATION_ERROR;
         }
       }
+    } else {
+      output = CONVERSATION_ERROR;
     }
-  } else {
-    output = CONVERSATION_ERROR;
   }
   return (output);
 }

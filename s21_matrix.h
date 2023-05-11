@@ -56,4 +56,7 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 
 //----------------------- Addition functions -----------------------//
 
+// Заполнение матрицы числами
+void s21_init_matrix(double number, matrix_t *A);
+
 #endif  // SRC_S21_MATRIX_H_
