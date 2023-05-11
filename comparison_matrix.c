@@ -2,6 +2,7 @@
 
 int s21_eq_matrix(matrix_t *A, matrix_t *B) {
   int output = COMP_SUCCESS;
+
   if (A->columns == B->columns && A->rows == B->rows) {
     for (int i = 0; i < A->rows && output == COMP_SUCCESS; i++) {
       for (int j = 0; j < A->columns && output == COMP_SUCCESS; j++) {

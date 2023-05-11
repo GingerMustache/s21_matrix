@@ -1,9 +1,9 @@
 #ifndef SRC_S21_MATRIX_H_
 #define SRC_S21_MATRIX_H_
 #include <check.h>
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct matrix_struct {
   double **matrix;
@@ -58,5 +58,8 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 
 // Заполнение матрицы числами
 void s21_init_matrix(double number, matrix_t *A);
+
+// Проверка на валидность матрицы
+int s21_check_matrix(matrix_t *matrix);
 
 #endif  // SRC_S21_MATRIX_H_
