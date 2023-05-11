@@ -28,10 +28,10 @@ int s21_create_matrix(int rows, int columns, matrix_t *result);
 void s21_remove_matrix(matrix_t *A);
 
 // Сравнение матриц (eq_matrix)
+int s21_eq_matrix(matrix_t *A, matrix_t *B);
+
 #define COMP_SUCCESS 1
 #define COMP_FAILURE 0
-
-int s21_eq_matrix(matrix_t *A, matrix_t *B);
 
 // Сложение (sum_matrix) и вычитание матриц (sub_matrix)
 int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result);
@@ -52,5 +52,7 @@ int s21_determinant(matrix_t *A, double *result);
 
 // Обратная матрица (inverse_matrix)
 int s21_inverse_matrix(matrix_t *A, matrix_t *result);
+
+//----------------------- Addition functions -----------------------//
 
 #endif  // SRC_S21_MATRIX_H_
