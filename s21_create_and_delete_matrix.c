@@ -1,5 +1,6 @@
 #include "s21_matrix.h"
 
+// Создание матриц
 int s21_create_matrix(int rows, int columns, matrix_t *result) {
   int output = CONVERSATION_ERROR;
 
@@ -27,6 +28,7 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
   return (output);
 }
 
+// Очистка матриц
 void s21_remove_matrix(matrix_t *A) {
   if (A->matrix) {
     for (int i = 0; i < A->rows; i++) {

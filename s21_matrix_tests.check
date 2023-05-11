@@ -1,0 +1,70 @@
+#include "s21_matrix.h"
+
+#test s21_create_matrix_01 
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(1, 1, &A);
+  ck_assert_int_eq(res, CONVERSATION_OK);
+  s21_remove_matrix(&A);
+
+#test s21_create_matrix_02
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(2, 2, &A);
+  ck_assert_int_eq(res, CONVERSATION_OK);
+  s21_remove_matrix(&A);
+
+#test s21_create_matrix_03
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(3, 2, &A);
+  ck_assert_int_eq(res, CONVERSATION_OK);
+  s21_remove_matrix(&A);
+
+#test s21_create_matrix_04
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(2, 4, &A);
+  ck_assert_int_eq(res, CONVERSATION_OK);
+  s21_remove_matrix(&A);
+
+
+#test s21_create_matrix_05
+ int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(10, 15, &A);
+  ck_assert_int_eq(res, CONVERSATION_OK);
+  s21_remove_matrix(&A);
+
+#test s21_create_matrix_06
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(0, 0, &A);
+  ck_assert_int_eq(res, CONVERSATION_ERROR);
+
+#test s21_create_matrix_07
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(1, 0, &A);
+  ck_assert_int_eq(res, CONVERSATION_ERROR);
+
+#test s21_create_matrix_08
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(0, 1, &A);
+  ck_assert_int_eq(res, CONVERSATION_ERROR);
+
+#test s21_create_matrix_09
+  int res = 0;
+  matrix_t A = {0};
+
+  res = s21_create_matrix(-1, 1, &A);
+  ck_assert_int_eq(res, CONVERSATION_ERROR);
