@@ -65,4 +65,10 @@ int s21_check_matrix(matrix_t *matrix);
 // Вывод матрицы на экран
 void s21_display_matrix(matrix_t *A);
 
+// Вычисление матрицы минора
+int s21_matrix_minor(matrix_t *matrix, matrix_t *result);
+
+// Вычисление минора элемента
+double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column);
+
 #endif  // SRC_S21_MATRIX_H_
