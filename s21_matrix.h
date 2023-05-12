@@ -59,7 +59,10 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 // Заполнение матрицы числами
 void s21_init_matrix(double number, matrix_t *A);
 
-// Проверка на валидность матрицы
+// Проверка матрицы на корректность
 int s21_check_matrix(matrix_t *matrix);
+
+// Вывод матрицы на экран
+void s21_display_matrix(matrix_t *A);
 
 #endif  // SRC_S21_MATRIX_H_

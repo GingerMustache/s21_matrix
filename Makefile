@@ -17,7 +17,7 @@ all: clean $(LIBS) gcov_report
 clean:
 	rm -rf  *.o *.gcda *.gcno *.gcov *.a *.info coverage_report check_s21_decimal a.out
 clean_test:
-	rm -rf s21_matrix_tests.c
+	rm -rf s21_matrix_tests.c s21_matrix_tests
 
 test: $(TESTS) 
 	./$(TESTS) 
