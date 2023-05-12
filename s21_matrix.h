@@ -69,6 +69,9 @@ void s21_display_matrix(matrix_t *A);
 int s21_matrix_minor(matrix_t *matrix, matrix_t *result);
 
 // Вычисление минора элемента
-double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column);
+double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column,
+                            matrix_t *tmp);
+double s21_get_determinant(matrix_t *A);
+void s21_get_matrix(int row, int col, matrix_t *A, matrix_t *result);
 
 #endif  // SRC_S21_MATRIX_H_
