@@ -52,19 +52,19 @@ matrix_t A  1 2 3
     11. Перемножаем элемент (0.1) matrix_t A  2 * (-3)
     12. Находим разницу  1 * (-3) -  2 * (-3) = 9
     ...
-    Нашли минорную матрицу для элемента (0.2) 4 7
+    Нашли минорную подматрицу для элемента (0.2) 4 7
                                               5 8
     -> нашли минор для элемента (0.0) в tmp и перемножили их = 4 * 8 = 32
     -> нашли минор для элемента (0.1) в tmp и перемножили их = 5 * 7 = 35
-    -> нашли разницу мжду ними 32 - 35 = -3
+    -> нашли разницу между ними 32 - 35 = -3
     -> Перемножаем элемент (0.2) matrix_t A на полученный результат
 
         3 * (-3) =-9!
 
-    13. Найдя результат из 12го пункта мы прибавляем к нему -9 = 9 + (-9) = 0!
+    13. Найдя результат из 12го пункта, мы прибавляем к нему -9, 9 + (-9) = 0!
     14. Возвращяем ответ = 0.
 */
-
+// Алгоритм нахождения определителя
 double s21_find_determinant(matrix_t *A, int *null_check) {
   double output = 0.0;
 
@@ -77,8 +77,6 @@ double s21_find_determinant(matrix_t *A, int *null_check) {
       if (!s21_create_matrix(A->rows - 1, A->columns - 1, &tmp)) {
         for (int i = 0; i < A->columns; i++) {
           s21_minor_of_element(A, 0, i, &tmp);
-          printf("\n");
-          s21_display_matrix(&tmp);
           if (i % 2 == 1) {
             output -= A->matrix[0][i] * s21_find_determinant(&tmp, null_check);
           } else {
@@ -102,6 +100,7 @@ index_row и index_column - это строка и столбец который
 minor для элемента (1.1) матрицы    4 5 6   будет 5 6
                                     7 8 9         8 9
 */
+// Нахождение минора для элемента матрицы
 double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column,
                             matrix_t *tmp) {
   double result = 0;
@@ -114,10 +113,13 @@ double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column,
         tmp->matrix[min_row][min_col] = matrix->matrix[i][j];
         min_col++;
         flg_fill = 1;
+        // printf("\n");
+        // s21_display_matrix(tmp);
       }
     }
     min_col = 0;
     if (flg_fill) min_row++;
+    flg_fill = 0;
   }
   return result;
 }
@@ -125,7 +127,7 @@ double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column,
 // Нахождения определителя
 int s21_determinant(matrix_t *A, double *result) {
   *result = 0.0;
-  int output = 0;
+  int output = CONVERSATION_OK;
   int null_check = 1;
 
   if (!s21_check_matrix(A)) {

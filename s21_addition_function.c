@@ -1,6 +1,6 @@
 #include "s21_matrix.h"
 
-// Заполнение матрицы числами
+// Заполнение матрицы
 void s21_init_matrix(double number, matrix_t *A) {
   for (int x = 0; x < A->rows; x++) {
     for (int y = 0; y < A->columns; number += 1.0, y++)
@@ -9,6 +9,8 @@ void s21_init_matrix(double number, matrix_t *A) {
 }
 
 // Проверка матрицы на корректность
+// CONVERSATION_OK = 0
+// CONVERSATION_ERROR = 1
 int s21_check_matrix(matrix_t *matrix) {
   int output = CONVERSATION_OK;
   if (matrix->rows < 1 || matrix->columns < 1) output = CONVERSATION_ERROR;
