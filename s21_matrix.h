@@ -66,12 +66,13 @@ int s21_check_matrix(matrix_t *matrix);
 void s21_display_matrix(matrix_t *A);
 
 // Вычисление матрицы минора
-int s21_matrix_minor(matrix_t *matrix, matrix_t *result);
+// int s21_matrix_minor(matrix_t *matrix, matrix_t *result);
 
-// Вычисление минора элемента
+// Вычисление минора элемента матрицы
 double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column,
                             matrix_t *tmp);
-double s21_get_determinant(matrix_t *A);
-void s21_get_matrix(int row, int col, matrix_t *A, matrix_t *result);
+
+// Рекурсивное вычислени определителя
+double s21_find_determinant(matrix_t *A, int *null_check);
 
 #endif  // SRC_S21_MATRIX_H_

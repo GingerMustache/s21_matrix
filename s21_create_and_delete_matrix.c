@@ -1,6 +1,8 @@
 #include "s21_matrix.h"
 
 // Создание матриц
+// CONVERSATION_OK = 0
+// CONVERSATION_ERROR = 1
 int s21_create_matrix(int rows, int columns, matrix_t *result) {
   int output = CONVERSATION_ERROR;
 
