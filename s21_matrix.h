@@ -72,4 +72,6 @@ double s21_minor_of_element(matrix_t *matrix, int index_row, int index_column,
 // Рекурсивное вычислени определителя
 double s21_find_determinant(matrix_t *A, int *null_check);
 
+int test_a(int *m);
+
 #endif  // SRC_S21_MATRIX_H_

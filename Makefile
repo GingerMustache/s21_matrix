@@ -1,5 +1,6 @@
 CC = gcc
-CFLAGS = -std=c11 -Wall -Wextra -Werror -pedantic -Wno-gnu-binary-literal -fprofile-arcs -ftest-coverage
+# -fsanitize=address
+CFLAGS = -std=c11 -Wall -Wextra -Werror -pedantic -Wno-gnu-binary-literal -fprofile-arcs -ftest-coverage 
 LIBS = s21_matrix.a
 TESTS = s21_matrix_tests
 C_FILES := $(wildcard *.c)
