@@ -20,11 +20,11 @@ int s21_check_matrix(matrix_t *matrix) {
   return output;
 }
 // Вывод матрицы на экран
-void s21_display_matrix(matrix_t *A) {
-  for (int x = 0; x < A->rows; x++) {
-    for (int y = 0; y < A->columns; y++) {
-      printf("%10lf ", A->matrix[x][y]);
-    }
-    printf("\n");
-  }
-}
+// void s21_display_matrix(matrix_t *A) {
+//   for (int x = 0; x < A->rows; x++) {
+//     for (int y = 0; y < A->columns; y++) {
+//       printf("%10lf ", A->matrix[x][y]);
+//     }
+//     printf("\n");
+//   }
+// }
