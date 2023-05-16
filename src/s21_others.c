@@ -57,8 +57,8 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
   double determinant = 0.0;
 
   if (!s21_check_matrix(A)) {
-    output = s21_create_matrix(A->rows, A->columns, result);
     if (A->rows == 1 && A->columns == 1) {
+      output = s21_create_matrix(A->rows, A->columns, result);
       result->matrix[0][0] = 1.0 / A->matrix[0][0];
       return output = CONVERSATION_OK;
     } else if (A->rows == A->columns) {
@@ -66,12 +66,12 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
       if (determinant) {
         matrix_t alg_add = {0};
         matrix_t transpose_mat = {0};
-        output += s21_create_matrix(A->rows, A->columns, &alg_add);
-        output += s21_create_matrix(A->rows, A->columns, &transpose_mat);
         output += s21_calc_complements(A, &alg_add);
         output += s21_transpose(&alg_add, &transpose_mat);
         if (output == 0) {
           s21_mult_number(&transpose_mat, (1 / determinant), result);
+        } else {
+          output = CONVERSATION_ERROR;
         }
         s21_remove_matrix(&alg_add);
         s21_remove_matrix(&transpose_mat);

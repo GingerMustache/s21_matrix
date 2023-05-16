@@ -12,12 +12,13 @@ void s21_init_matrix(double number, matrix_t *A) {
 // CONVERSATION_OK = 0
 // CONVERSATION_ERROR = 1
 int s21_check_matrix(matrix_t *matrix) {
-  int output = CONVERSATION_OK;
-  if (matrix->rows < 1 || matrix->columns < 1) output = CONVERSATION_ERROR;
-  if (matrix->matrix == NULL) output = CONVERSATION_ERROR;
-  if (matrix == NULL) output = CONVERSATION_ERROR;
+  int res = CONVERSATION_OK;
+  if (matrix == NULL || matrix->matrix == NULL || matrix->rows <= 0 ||
+      matrix->columns <= 0) {
+    res = CONVERSATION_ERROR;
+  }
 
-  return output;
+  return res;
 }
 // Вывод матрицы на экран
 // void s21_display_matrix(matrix_t *A) {

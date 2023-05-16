@@ -17,7 +17,7 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
     if (result->matrix != NULL) {
       for (int i = 0; i < rows && !output; i++) {
         result->matrix[i] = (double *)calloc(columns, (sizeof(double)));
-        if (result->matrix[i] == NULL) {
+        if (!result->matrix[i]) {
           for (int j = 0; j < i; j++) free(result->matrix[j]);
           free(result->matrix);
           output = CONVERSATION_ERROR;
